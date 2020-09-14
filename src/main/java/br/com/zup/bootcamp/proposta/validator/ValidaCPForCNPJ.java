@@ -1,7 +1,16 @@
 package br.com.zup.bootcamp.proposta.validator;
 
+import javax.validation.Constraint;
 import javax.validation.Payload;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
+import static java.lang.annotation.ElementType.*;
+
+@Constraint(validatedBy = { ValidaCPForCNPJValidator.class })
+@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Retention(RetentionPolicy.RUNTIME)
 public @interface ValidaCPForCNPJ {
     String message() default "Invalid value";
 
