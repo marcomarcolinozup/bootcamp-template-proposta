@@ -12,6 +12,7 @@ bin
 **/.project
 **/.classpath
 **/bin
+**/.idea
 **/.settings
 **/*.log
 *.iml

@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  analise:
+    image: 'zupacademy/analise-financeira'
+    ports:
+      - 9999:9999
+    environment:
+      SERVER_PORT: 9999
+      LOG_LEVEL: INFO
+      URL_SISTEMA_CARTAO: http://contas:8888/api/cartoes
+  contas:
+    image: 'zupacademy/contas'
+    ports:
+      - 8888:8888
+    environment:
+      SERVER_PORT: 8888
+      LOG_LEVEL: INFO
+
+  mysql:
+    image: mysql:8.0.21
+    container_name: zup-mysql
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: core
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: zup
+      MYSQL_PASSWORD: zuppassword

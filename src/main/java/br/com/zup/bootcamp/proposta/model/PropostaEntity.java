@@ -4,6 +4,7 @@ import br.com.zup.bootcamp.proposta.validator.ValidaCPForCNPJ;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -12,8 +13,6 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "proposta" )
 public class PropostaEntity {
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +23,9 @@ public class PropostaEntity {
     @Column(unique = true)
     private String documento;
 
-
-    private static final String REGEXP_EMAIL = "[a-z0-9]+(?:.[a-z0-9_]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-
     @NotNull
     @NotEmpty
-    @Pattern(regexp = REGEXP_EMAIL)
+    @Email
     private String email;
 
     @NotNull
@@ -48,7 +44,7 @@ public class PropostaEntity {
 
     public PropostaEntity(String documento,
                           @NotEmpty
-                          @Pattern(regexp = REGEXP_EMAIL) String email,
+                          @Email String email,
                           @NotEmpty String nome,
                           @NotEmpty String endereco,
                           @Min(0) BigDecimal salario){
