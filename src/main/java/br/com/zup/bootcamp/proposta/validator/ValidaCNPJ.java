@@ -4,6 +4,10 @@ import java.util.InputMismatchException;
 
 public class ValidaCNPJ {
 
+    public static void main(String[] args) {
+        String cnpj = "74184736000101";
+        System.out.println(ValidaCNPJ.isCNPJ(cnpj));
+    }
     public static boolean isCNPJ(String CNPJ) {
 // considera-se erro CNPJ's formados por uma sequencia de numeros iguais
         if (CNPJ.equals("00000000000000") || CNPJ.equals("11111111111111") ||

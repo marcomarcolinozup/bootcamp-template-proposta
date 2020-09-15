@@ -11,8 +11,8 @@ public class ValidaCPForCNPJValidator implements ConstraintValidator<ValidaCPFor
     public void initialize(PropostaEntity contactInfo) {
      }
 
-    private Pattern patternCpf = Pattern.compile("\\d{11}");
-    private Pattern patternCnpj = Pattern.compile("\\d{14}");
+    private Pattern patternCpf = Pattern.compile("^\\d{11}$");
+    private Pattern patternCnpj = Pattern.compile("^\\d{14}$");
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {

@@ -13,17 +13,23 @@ import java.math.BigDecimal;
 @Table(name = "proposta" )
 public class PropostaEntity {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
     @ValidaCPForCNPJ
+    @Column(unique = true)
     private String documento;
+
+
+    private static final String REGEXP_EMAIL = "[a-z0-9]+(?:.[a-z0-9_]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 
     @NotNull
     @NotEmpty
-    @Pattern(regexp = "^\\S+@\\S+\\.\\S+$")
+    @Pattern(regexp = REGEXP_EMAIL)
     private String email;
 
     @NotNull
@@ -37,6 +43,21 @@ public class PropostaEntity {
     @NotNull
     @Min(0)
     private BigDecimal salario;
+
+    public PropostaEntity(){}
+
+    public PropostaEntity(String documento,
+                          @NotEmpty
+                          @Pattern(regexp = REGEXP_EMAIL) String email,
+                          @NotEmpty String nome,
+                          @NotEmpty String endereco,
+                          @Min(0) BigDecimal salario){
+        this.documento = documento;
+        this.email = email;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.salario = salario;
+    }
 
     public Integer getId() {
         return id;
