@@ -40,6 +40,8 @@ public class PropostaEntity {
     @Min(0)
     private BigDecimal salario;
 
+    private STATUS_PROPOSTA status;
+
     public PropostaEntity(){}
 
     public PropostaEntity(String documento,
@@ -101,5 +103,13 @@ public class PropostaEntity {
 
     public void setSalario(BigDecimal salario) {
         this.salario = salario;
+    }
+
+    public STATUS_PROPOSTA getStatus() {
+        return status;
+    }
+
+    public void setStatus(STATUS_PROPOSTA status) {
+        this.status = status;
     }
 }

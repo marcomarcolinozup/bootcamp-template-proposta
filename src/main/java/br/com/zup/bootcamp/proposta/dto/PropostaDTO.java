@@ -1,5 +1,7 @@
 package br.com.zup.bootcamp.proposta.dto;
 
+import br.com.zup.bootcamp.proposta.model.STATUS_PROPOSTA;
+
 import java.math.BigDecimal;
 
 public class PropostaDTO {
@@ -10,6 +12,15 @@ public class PropostaDTO {
     private String nome;
     private String endereco;
     private BigDecimal salario;
+    private STATUS_PROPOSTA status;
+
+    public STATUS_PROPOSTA getStatus() {
+        return status;
+    }
+
+    public void setStatus(STATUS_PROPOSTA status) {
+        this.status = status;
+    }
 
     public Integer getId() {
         return id;

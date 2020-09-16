@@ -1,11 +1,17 @@
 package br.com.zup.bootcamp.proposta.dto;
 
+import br.com.zup.bootcamp.proposta.model.STATUS_PROPOSTA;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SolicitacaoAnaliseDTO {
 
     private String documento;
     private String nome;
     private String idProposta;
-    private STATUS_SOLICITACAO statusSolicitacao;
+
+    private STATUS_ANALISE resultadoSolicitacao;
 
     public String getDocumento() {
         return documento;
@@ -31,12 +37,12 @@ public class SolicitacaoAnaliseDTO {
         this.idProposta = idProposta;
     }
 
-    public STATUS_SOLICITACAO getStatusSolicitacao() {
-        return statusSolicitacao;
+    public STATUS_ANALISE getResultadoSolicitacao() {
+        return resultadoSolicitacao;
     }
 
-    public void setStatusSolicitacao(STATUS_SOLICITACAO statusSolicitacao) {
-        this.statusSolicitacao = statusSolicitacao;
+    public void setResultadoSolicitacao(STATUS_ANALISE resultadoSolicitacao) {
+        this.resultadoSolicitacao = resultadoSolicitacao;
     }
 
     @Override
@@ -45,7 +51,7 @@ public class SolicitacaoAnaliseDTO {
                 "documento='" + documento + '\'' +
                 ", nome='" + nome + '\'' +
                 ", idProposta='" + idProposta + '\'' +
-                ", statusSolicitacao=" + statusSolicitacao +
+                ", resultadoSolicitacao=" + resultadoSolicitacao +
                 '}';
     }
 }
